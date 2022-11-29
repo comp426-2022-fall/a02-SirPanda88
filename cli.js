@@ -54,7 +54,7 @@ if ("e" in args) {
 
 const timezone = moment.tz.guess();
 if ("z" in args) {
-	timezone = argz.z;
+	timezone = args.z;
 }
 
 let dayOffset = 1;
