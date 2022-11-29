@@ -52,7 +52,7 @@ if ("e" in args) {
 	console.log("Must specify LONGITUDE");
 }
 
-const timezone = moment.tz.guess();
+let timezone = moment.tz.guess();
 if ("z" in args) {
 	timezone = args.z;
 }
@@ -82,11 +82,11 @@ if (precipitation === 0) {
 } else {
 	message += "You might need your galoshes ";
 }
-if (day === 0) {
+if (dayOffset === 0) {
 	message += "today.";
-} else if (day === 1) {
+} else if (dayOffset === 1) {
 	message += "tomorrow.";
 } else {
-	message += "in " + days + " days.";
+	message += "in " + dayOffset + " days.";
 }
-console.log(string);
+console.log(message);
