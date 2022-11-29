@@ -29,8 +29,12 @@ if ("n" in args) {
 		latit = args.n;
 	}
 } else if ("s" in args) {
-	        if ("s" in args) {
-                console.log("Cannot specify LATITUDE twice");
-        } else {
-                latit = args.n;
-        }
+	if ("n" in args) {
+		console.log("Cannot specify LATITUDE twice");
+	} else {
+		latit = -args.s;
+	}
+} else {
+	console.log("Must specify LATITUDE");
+}
+
