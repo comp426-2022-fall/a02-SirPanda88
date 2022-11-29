@@ -32,8 +32,6 @@ if ("n" in args) {
 	} else {
 		latit = -args.s;
 	}
-} else {
-	console.log("Must specify LATITUDE");
 }
 
 if ("e" in args) {
@@ -48,8 +46,6 @@ if ("e" in args) {
 	} else {
 		longit = -args.w;
 	}
-} else {
-	console.log("Must specify LONGITUDE");
 }
 
 let timezone = moment.tz.guess();
