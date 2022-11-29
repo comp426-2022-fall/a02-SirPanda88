@@ -17,8 +17,6 @@ if (args.h) {
 	process.exit(0);
 }
 
-const timezone = moment.tz.guess()
-
 let latit = 0;
 let longit = 0;
 
@@ -37,4 +35,31 @@ if ("n" in args) {
 } else {
 	console.log("Must specify LATITUDE");
 }
+
+if ("e" in args) {
+        if ("w" in args) {
+                console.log("Cannot specify LONGITUDE twice");
+        } else {
+                longit = args.e;
+        }
+} else if ("w" in args) {
+        if ("e" in args) {
+                console.log("Cannot specify LONGITUDE twice");
+        } else {
+                longit = -args.w;
+        }
+} else {
+        console.log("Must specify LONGITUDE");
+}
+
+const timezone = moment.tz.guess();
+if ("z" in args) {
+	timezone = argz.z;
+}
+
+let dayOffset = 1;
+if ("d" in args) {
+	dayOffset = args.d;
+}
+
 
