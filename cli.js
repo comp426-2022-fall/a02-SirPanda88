@@ -37,19 +37,19 @@ if ("n" in args) {
 }
 
 if ("e" in args) {
-        if ("w" in args) {
-                console.log("Cannot specify LONGITUDE twice");
-        } else {
-                longit = args.e;
-        }
+	if ("w" in args) {
+		console.log("Cannot specify LONGITUDE twice");
+	} else {
+		longit = args.e;
+	}
 } else if ("w" in args) {
-        if ("e" in args) {
-                console.log("Cannot specify LONGITUDE twice");
-        } else {
-                longit = -args.w;
-        }
+	if ("e" in args) {
+		console.log("Cannot specify LONGITUDE twice");
+	} else {
+		longit = -args.w;
+	}
 } else {
-        console.log("Must specify LONGITUDE");
+	console.log("Must specify LONGITUDE");
 }
 
 const timezone = moment.tz.guess();
@@ -62,4 +62,31 @@ if ("d" in args) {
 	dayOffset = args.d;
 }
 
+let baseUrl = "https://api.open-meteo.com/v1/forecast?";
+let url = baseUrl + 'latitude=' + latit + '&longitude=' + longit + "&timezone=" + timezone + "&daily=precipitation_hours";
 
+const response = await fetch(url);
+const data = await response.json();
+
+if ("j" in args) {
+	console.log(data);
+	process.exit(0);
+}
+
+let precipitationForecast = data.daily.precipitation_hours;
+let precipitation = precipitationForecast[dayOffset];
+let response = ""
+
+if (precipitation === 0) {
+	response += "You will not need your galoshes ";
+} else {
+	string += "You might need your galoshes ";
+}
+if (day === 0) {
+	string += "today.";
+} else if (day === 1) {
+	string += "tomorrow.";
+} else {
+	string += "in " + days + " days.";
+}
+console.log(string);
