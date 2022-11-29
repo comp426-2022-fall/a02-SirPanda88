@@ -75,18 +75,18 @@ if ("j" in args) {
 
 let precipitationForecast = data.daily.precipitation_hours;
 let precipitation = precipitationForecast[dayOffset];
-let response = ""
+let message = ""
 
 if (precipitation === 0) {
-	response += "You will not need your galoshes ";
+	message += "You will not need your galoshes ";
 } else {
-	string += "You might need your galoshes ";
+	message += "You might need your galoshes ";
 }
 if (day === 0) {
-	string += "today.";
+	message += "today.";
 } else if (day === 1) {
-	string += "tomorrow.";
+	message += "tomorrow.";
 } else {
-	string += "in " + days + " days.";
+	message += "in " + days + " days.";
 }
 console.log(string);
