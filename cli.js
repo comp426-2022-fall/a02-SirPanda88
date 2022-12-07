@@ -85,7 +85,7 @@ if (precipitation === 0) {
 if (dayOffset === 0) {
 	message += "today.";
 } else if (dayOffset === 1) {
-	message += "tomorrow.";
+	message += 'tomorrow.';
 } else {
 	message += 'in ' + dayOffset + ' days.';
 }
