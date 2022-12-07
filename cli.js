@@ -83,7 +83,7 @@ if (precipitation === 0) {
 	message += "You might need your galoshes ";
 }
 if (dayOffset === 0) {
-	message += "today.";
+	message += 'today.';
 } else if (dayOffset === 1) {
 	message += 'tomorrow.';
 } else {
