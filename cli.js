@@ -87,6 +87,6 @@ if (dayOffset === 0) {
 } else if (dayOffset === 1) {
 	message += "tomorrow.";
 } else {
-	message += "in " + dayOffset + " days.";
+	message += "in " + dayOffset + ' days.';
 }
 console.log(message);
